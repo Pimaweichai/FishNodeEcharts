@@ -21,11 +21,11 @@ version > 8.x
 
 ```
 @param config = {
-	width: 500 // image width, it is not required, the default will be 500 
-	height: 500 // image height,it is not required, default will be 500 
-	option: {}, //it is required, echarts configuration
-	path:'', // the filepath where the image which will be created. it is not required, if it is not provided, the function will not generate the file but return an image buffer.
-	font:'', // '12px 微软雅黑' or '12px 华文仿宋',it it not required ,the default is '12px 微软雅黑'
+    width: 500 // image width, it is not required, the default will be 500 
+    height: 500 // image height,it is not required, default will be 500 
+    option: {}, //it is required, echarts configuration
+    path:'', // the filepath where the image which will be created. it is not required, if it is not provided, the function will not generate the file but return an image buffer.
+    font:'', // '12px 微软雅黑' or '12px 华文仿宋',it it not required ,the default is '12px 微软雅黑'
 }
 ```
 
