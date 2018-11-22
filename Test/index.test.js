@@ -9,22 +9,18 @@ describe('FishNodeEcharts:',()=>{
         width:300,
         height:300,
         option:{
-            title: {
-                text: '测试'
-            },
-            tooltip: {},
-            legend: {
-                data:['test']
-            },
+            backgroundColor:'#fff',
             xAxis: {
-                data: ["a","b","c","d","f","g"]
+                type: 'category',
+                data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
             },
-            yAxis: {},
+            yAxis: {
+                type: 'value'
+            },
             series: [{
-                name: 'test',
-                type: 'bar',
-                data: [5, 20, 36, 10, 10, 20]
-             }]
+                data: [820, 932, 901, 934, 1290, 1330, 1320],
+                type: 'line'
+            }]
         }
     };
     let pathname=path.join(__dirname,`./test.jpg`)
