@@ -1,0 +1,33 @@
+{
+  "name": "fish-node-echarts",
+  "version": "1.0.0",
+  "description": "run echarts on node server",
+  "main": "index.js",
+  "scripts": {
+    "test": "nyc mocha ./Test/index.test.js --exit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Pimaweichai/FishNodeEcharts.git"
+  },
+  "keywords": [
+    "echarts",
+    "server",
+    "node"
+  ],
+  "author": "pimaweichai",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Pimaweichai/FishNodeEcharts/issues"
+  },
+  "homepage": "https://github.com/Pimaweichai/FishNodeEcharts#readme",
+  "dependencies": {
+    "canvas": "^2.1.0",
+    "echarts": "^4.2.0-rc.2"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "nyc": "^13.1.0"
+  }
+}
