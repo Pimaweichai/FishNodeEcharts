@@ -1,11 +1,4 @@
-# FishNodeEcharts 
-[![GitHub issues](https://img.shields.io/github/issues/Pimaweichai/FishNodeEcharts.svg)](https://github.com/Pimaweichai/FishNodeEcharts/issues)
-
-[![GitHub forks](https://img.shields.io/github/forks/Pimaweichai/FishNodeEcharts.svg)](https://github.com/Pimaweichai/FishNodeEcharts/network)
-
-[![GitHub stars](https://img.shields.io/github/stars/Pimaweichai/FishNodeEcharts.svg)](https://github.com/Pimaweichai/FishNodeEcharts/stargazers)
-
-[![GitHub license](https://img.shields.io/github/license/Pimaweichai/FishNodeEcharts.svg)](https://github.com/Pimaweichai/FishNodeEcharts/blob/master/LICENSE)
+# FishNodeEcharts [![GitHub issues](https://img.shields.io/github/issues/Pimaweichai/FishNodeEcharts.svg)](https://github.com/Pimaweichai/FishNodeEcharts/issues)[![GitHub forks](https://img.shields.io/github/forks/Pimaweichai/FishNodeEcharts.svg)](https://github.com/Pimaweichai/FishNodeEcharts/network[![GitHub stars](https://img.shields.io/github/stars/Pimaweichai/FishNodeEcharts.svg)](https://github.com/Pimaweichai/FishNodeEcharts/stargazers)[![GitHub license](https://img.shields.io/github/license/Pimaweichai/FishNodeEcharts.svg)](https://github.com/Pimaweichai/FishNodeEcharts/blob/master/LICENSE)
 
 Create echarts on server side by node
 ### How to instal
