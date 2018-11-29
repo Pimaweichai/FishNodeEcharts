@@ -19,7 +19,8 @@ Windows | [Instructions on our wiki](https://github.com/Automattic/node-canvas/w
 npm install fish-node-echarts
 ```
 ### ENV
-#####node
+
+##### node
 version > 8.x
 
 ### How to use
@@ -34,11 +35,13 @@ version > 8.x
 ```
 
 
-#####1.  require the module
+##### 1.  require the module
+
 ```
 const genEchart = require('fish-node-echarts');
 ```
-#####2. define an echart option(you can check the [echarts](http://www.echartsjs.com/option.html) ducument):
+##### 2. define an echart option(you can check the [echarts](http://www.echartsjs.com/option.html) ducument): 
+
 ```
 const option = {
     backgroundColor:'#fff',
