@@ -54,7 +54,7 @@ module.exports = async (config) => {
             const out = fs.createWriteStream(filepath);
             if(type=='png'||type=='PNG'){
                 return new Promise((resolved,reject)=>{
-                    const stream = canvas.createPNGStream();
+                    const stream = canvas.createPNGStream({compressionLevel: 0});
                     stream.pipe(out);
                     out.on('finish',()=>resolved(filepath));
                     out.on('error',()=>reject());
@@ -63,7 +63,7 @@ module.exports = async (config) => {
                 return new Promise((resolved,reject)=>{
                     const stream = canvas.createJPEGStream({
                         quality:1,
-                        progressive: false, 
+                        progressive: false,
                         chromaSubsampling: true
                     });
                     stream.pipe(out);
