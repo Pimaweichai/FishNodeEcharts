@@ -30,7 +30,9 @@ version > 8.x
     width: 500 // image width, it is not required, the default will be 500 
     height: 500 // image height,it is not required, default will be 500 
     option: {}, //it is required, echarts configuration
-    path:'', // the filepath where the image which will be created. it is not required, if it is not provided, the function will not generate the file but return an image buffer.
+    pathname:'', // the filepath where the image which will be created. it is not required, default './',
+    filename:'test.jpg', //the filename, it is not provide, it will not create the image but reture a file stream,
+    type:'png' //the image type, support 'png' or 'jgp',default 'png'
 }
 ```
 
@@ -67,7 +69,9 @@ genEchart({
     width:500,
     height:500,
     option,
-    path:'./test.jpg'
+    pathname:'./Test',
+    filename:'test.jpg',
+    type:'jpg'
 }).then(filename =>{
 	//get the echart image filename
 });
@@ -80,7 +84,9 @@ let filename = await genEchart({
     width:500,
     height:500,
     option,
-    path:'./test.jpg'
+    pathname:'./Test',
+    filename:'test.jpg',
+    type:'jpg'
 });
 
 ```
@@ -90,7 +96,10 @@ let filename = await genEchart({
 genEchart({
     width:500,
     height:500,
-    option
+    option,
+    pathname:'./Test',
+    filename:'test.jpg',
+    type:'jpg'
 }).then(buffer=>{
 	//get the echart image buffer
 });
@@ -102,7 +111,10 @@ genEchart({
 let buffer = await genEchart({
     width:500,
     height:500,
-    option
+    option,
+    pathname:'./Test',
+    filename:'test.jpg',
+    type:'jpg'
 });
 
 ```
