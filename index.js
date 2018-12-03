@@ -29,57 +29,51 @@ fs.readdirSync(path.join(__dirname,"./fonts"))
 */
 
 module.exports = async (config) => {
-    try{
-        let {
-            width,
-            height,
-            option,
-            pathname=path.join(__dirname,'./'),
-            filename,
-            type='png',
-            fontSize=12
-        } = config;
-        if(!option) throw new Error('缺少option参数');
-        width = parseInt(width) || 500;
-        height = parseInt(height) || 500;
-        let canvas = createCanvas(width,height);
-        let ctx = canvas.getContext('2d');
-        ctx.font =fontSize+'px "微软雅黑"';
-        ctx.quality = 'bilinear';
-        let chart = echarts.init(canvas,null);
-        option.animation = false;
-        chart.setOption(option);
-        if (filename) {
-            let filepath = path.join(__dirname,pathname,filename);
-            const out = fs.createWriteStream(filepath);
-            if(type=='png'||type=='PNG'){
-                return new Promise((resolved,reject)=>{
-                    const stream = canvas.createPNGStream({compressionLevel: 0});
-                    stream.pipe(out);
-                    out.on('finish',()=>resolved(filepath));
-                    out.on('error',()=>reject());
+    let {
+        width,
+        height,
+        option,
+        pathname=path.join(__dirname,'./'),
+        filename,
+        type='png',
+        fontSize=12
+    } = config;
+    if(!option) throw new Error('缺少option参数');
+    width = parseInt(width) || 500;
+    height = parseInt(height) || 500;
+    let canvas = createCanvas(width,height);
+    let ctx = canvas.getContext('2d');
+    ctx.font =fontSize+'px "微软雅黑"';
+    ctx.quality = 'bilinear';
+    let chart = echarts.init(canvas,null);
+    option.animation = false;
+    chart.setOption(option);
+    if (filename) {
+        let filepath = path.join(__dirname,pathname,filename);
+        const out = fs.createWriteStream(filepath);
+        if(type=='png'||type=='PNG'){
+            return new Promise((resolved,reject)=>{
+                const stream = canvas.createPNGStream({compressionLevel: 0});
+                stream.pipe(out);
+                out.on('finish',()=>resolved(filepath));
+                out.on('error',()=>reject());
+            });
+        } else if(type=='jpg'||type=='JPG'||type=='jpeg'||type=='JPEG'){
+            return new Promise((resolved,reject)=>{
+                const stream = canvas.createJPEGStream({
+                    quality:1,
+                    progressive: false,
+                    chromaSubsampling: true
                 });
-            } else if(type=='jpg'||type=='JPG'||type=='jpeg'||type=='JPEG'){
-                return new Promise((resolved,reject)=>{
-                    const stream = canvas.createJPEGStream({
-                        quality:1,
-                        progressive: false,
-                        chromaSubsampling: true
-                    });
-                    stream.pipe(out);
-                    out.on('finish',()=>resolved(filepath));
-                    out.on('error',()=>reject());
-                });
-            } else{
-                return null;
-            }
+                stream.pipe(out);
+                out.on('finish',()=>resolved(filepath));
+                out.on('error',()=>reject());
+            });
+        } else{
+            return null;
         }
-        else {
-            return canvas.toBuffer();
-        }
-
-    }catch(e){
-        console.log(e);
-        return null;
+    }
+    else {
+        return canvas.toBuffer();
     }
 }
