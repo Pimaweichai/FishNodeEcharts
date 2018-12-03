@@ -33,7 +33,7 @@ module.exports = async (config) => {
         width,
         height,
         option,
-        pathname=path.join(__dirname,'./'),
+        pathname='./',
         filename,
         type='png',
         fontSize=12
@@ -49,7 +49,7 @@ module.exports = async (config) => {
     option.animation = false;
     chart.setOption(option);
     if (filename) {
-        let filepath = path.join(__dirname,pathname,filename);
+        let filepath = path.join(pathname,filename);
         const out = fs.createWriteStream(filepath);
         if(type=='png'||type=='PNG'){
             return new Promise((resolved,reject)=>{
