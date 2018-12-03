@@ -1,13 +1,14 @@
-const {should,expect,assert} = require('chai');
+const {expect} = require('chai');
 const genEchart = require('../index.js');
 const path = require('path');
 const fs = require('fs');
 
 describe('FishNodeEcharts:',()=>{
-    let defaultConfig = {
-        font:'12px 微软雅黑',
+    let config = {
+        fontSize:24,
         width:300,
         height:300,
+        quality:100,
         option:{
             backgroundColor:'#fff',
             xAxis: {
@@ -21,26 +22,45 @@ describe('FishNodeEcharts:',()=>{
                 data: [820, 932, 901, 934, 1290, 1330, 1320],
                 type: 'line'
             }]
-        }
+        },
+        pathname:'./Test'
     };
-    let pathname=path.join(__dirname,`./test.jpg`)
-    describe('#genImageFile',()=>{
+    describe('#genPNGFile',()=>{
+        config.type = 'png';
+        config.filename  = 'test.png'
+        let filepath = path.join(__dirname,config.pathname,config.filename);
         try{
-            fs.unlinkSync(pathname);
+            fs.unlinkSync(filepath);
         }catch(e){};
-        let config = {...defaultConfig,path:pathname};
         it('should generate the image file',async ()=>{
             let result = await genEchart(config);
-            expect(result,pathname);
-            expect(fs.existsSync(pathname),true);
+            expect(result,filepath);
+            expect(fs.existsSync(filepath),true);
+        });
+    });
+    describe('#genJPGFile',()=>{
+        config.type = 'jpg';
+        config.filename  = 'test.jpg'
+        let filepath = path.join(__dirname,config.pathname,config.filename);
+        try{
+            fs.unlinkSync(filepath);
+        }catch(e){};
+        it('should generate the image file',async ()=>{
+            let result = await genEchart(config);
+            expect(result,filepath);
+            expect(fs.existsSync(filepath),true);
         });
     });
     describe('#genImageBuffer',()=>{
         it('should generate the image buffer',async ()=>{
-            let buffer = await genEchart(defaultConfig);
+            config.type = 'png';
+            config.filename  = 'test.png'
+            let filepath = path.join(__dirname,config.pathname,config.filename);
+            config.filename = null;
+            let buffer = await genEchart(config);
             expect(Buffer.isBuffer(buffer),true);
             try{
-                let imageBuffer = fs.readFileSync(pathname);
+                let imageBuffer = fs.readFileSync(filepath);
                 expect(buffer.length,imageBuffer.length);
             }catch(e){};
         })
