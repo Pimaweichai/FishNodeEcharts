@@ -1,4 +1,9 @@
-# FishNodeEcharts
+# FishNodeEcharts 
+[![GitHub issues](https://img.shields.io/github/issues/Pimaweichai/FishNodeEcharts.svg)](https://github.com/Pimaweichai/FishNodeEcharts/issues)
+[![GitHub forks](https://img.shields.io/github/forks/Pimaweichai/FishNodeEcharts.svg)](https://github.com/Pimaweichai/FishNodeEcharts/network)
+[![GitHub stars](https://img.shields.io/github/stars/Pimaweichai/FishNodeEcharts.svg)](https://github.com/Pimaweichai/FishNodeEcharts/stargazers)
+[![GitHub license](https://img.shields.io/github/license/Pimaweichai/FishNodeEcharts.svg)](https://github.com/Pimaweichai/FishNodeEcharts/blob/master/LICENSE)
+ 
 Create echarts on server side by node
 ### How to instal
 
@@ -14,7 +19,8 @@ Windows | [Instructions on our wiki](https://github.com/Automattic/node-canvas/w
 npm install fish-node-echarts
 ```
 ### ENV
-#####node
+
+##### node
 version > 8.x
 
 ### How to use
@@ -29,11 +35,13 @@ version > 8.x
 ```
 
 
-#####1.  require the module
+##### 1.  require the module
+
 ```
 const genEchart = require('fish-node-echarts');
 ```
-#####2. define an echart option(you can check the [echarts](http://www.echartsjs.com/option.html) ducument):
+##### 2. define an echart option(you can check the [echarts](http://www.echartsjs.com/option.html) ducument): 
+
 ```
 const option = {
     backgroundColor:'#fff',
