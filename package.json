@@ -1,6 +1,6 @@
 {
   "name": "fish-node-echarts",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "run echarts on node server",
   "main": "index.js",
   "scripts": {
